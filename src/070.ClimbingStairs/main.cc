@@ -4,6 +4,10 @@
 
 using namespace std;
 
+/*
+ * Note: Change the return type to long long
+ * to prevent overflow when n is bigger than 48
+ */
 long long climbStairs(int n) {
     if (n <= 3) return n;
 
