@@ -1,5 +1,5 @@
 CC=g++
-CXXFLAGS=-I.
+CXXFLAGS=-I ../../include/
 OBJ=main.o
 
 %.o: %.cc $(DEPS)
