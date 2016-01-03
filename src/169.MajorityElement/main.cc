@@ -9,6 +9,12 @@
 
 using namespace std;
 
+/* O(n*log(n)) first sort, then return the middle element */
+int majorityElement_sort(vector<int>& nums) {
+    sort(nums.begin(), nums.end());
+    return nums[nums.size()/2];
+}
+
 /* O(n) voting algorithm */
 int majorityElement(vector<int>& nums) {
     int count = 0;
