@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Type the git commit message, followed by [ENTER]:"
+echo -n "Type the git commit message, followed by [ENTER]: "
 read message
 
 git add -A
