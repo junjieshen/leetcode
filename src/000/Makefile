@@ -1,12 +1,20 @@
-CC=g++
-CXXFLAGS=-I ../../include/
-OBJ=main.o
+CC = g++
+EXEC = main
+SRCS = $(wildcard *.cc)
+OBJS = $(SRCS:.cc=.o)
+CFLAGS = -g -Wall
+INCS = -I../../include/ #-I/usr/local/Cellar/boost/1.59.0/include
+LFLAGS = #-L/usr/local/Cellar/boost/1.59.0/lib
+LIBS = #-lboost_program_options
 
-%.o: %.cc $(DEPS)
-		$(CC) -std=c++11 -g -c -o $@ $< $(CXXFLAGS)
+all:	$(EXEC)
+		@echo The program has been compiled
 
-run: $(OBJ)
-		$(CC) -o $@ $^ $(CXXFLAGS)
+$(EXEC):$(OBJS)
+		$(CC) $(CFLAGS) $(INCS) -o $@ $(OBJS) $(LFLAGS) $(LIBS)
+
+.cc.o:
+		$(CC) $(CFLAGS) $(INCS) -c $< -o $@
 
 clean: 
-	rm -f *.o run
+		rm -f $(EXEC) $(OBJS)
